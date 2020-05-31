@@ -1,39 +1,128 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+@import './utilities';
+@import './variables';
+
+/* ------------------------------
+4. Reset Styles
+---------------------------------*/
+html {
+    @extend  .height100;
+    @extend  .width100;
+}
+
+body {
+    background-color: #FAFAFA;
+    line-height: 22px;
+    user-select: none;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    @extend .fontPrimary_body;
+    @extend .font-14;
+    @extend .relative;
+    @extend .height100;
+    @extend .nomargin;
+    @extend .nopad;
+}
+
+.divider {
+    margin: 25px 0;
+    border: 1px solid #dadada;
+}
+
+/* ------------------------------
+4. Buttons Styles
+---------------------------------*/
+.btnPrimary__lg {
+  background-color: $primaryColor;
+  letter-spacing: 0.18px;
+  line-height: 22px;
+  color: $white;
+  padding: 16px 40px;
+  outline: 0;
+  @extend .inlineblock;
+  @extend .font-16;
+  @extend .bold;
+  @extend .noborder;
+  @include rounded-corners(4px);
+  @include transition(all ease 0.3s);
+
+		&.type-2{
+			background-color: $secondaryColor;
+			color: $fontColor;
+		}
+}
+
+.btnPrimary__sm {
+  background-color: $secondaryColor;
+  letter-spacing: 0.18px;
+  line-height: 13px;
+  color: $fontColor;
+  padding: 8px 12px;
+  height: 35px;
+  outline: 0;
+  @extend .inlineblock;
+  @extend .font-14;
+  @extend .bold;
+  @extend .noborder;
+	@include rounded-corners(4px);
+	@include transition(all ease 0.3s);
+}
+
+.btnPrimary__border {
+  border: 1px solid $white;
+  background-color: transparent;
+  letter-spacing: 0.18px;
+  line-height: 13px;
+  color: $white;
+  padding: 8px 12px;
+  height: 35px;
+  outline: 0;
+  @extend.inlineblock;
+  @extend.font-14;
+  @extend.bold;
+	@include rounded-corners(4px);
+	@include transition(all ease 0.3s);
+		&:hover{
+			color: $white;
+		}
+}
+
+.btnPrimary__menu {
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+  color: $white;
+  font-size: 36px;
+  line-height: 35px;
+  outline: none;
+  @extend.noborder;
+  @extend.nopad;
+  @extend.text-center;
+  @extend.relative;
+
+		.icon{
+			color: $white;
+			@extend.inlineblock;
+			@extend.valign-middle;
+		}
+}
+
+@media only screen and (max-width: 768px) {
+  .btnPrimary__sm {
+    font-size: 12px;
+    line-height: 17px;
+    padding: 6px 12px;
+    height: 29px;
+	}
+	.btnPrimary__menu {
+    height: 25px;
+    width: 25px;
+    font-size: 26px;
+		line-height: 20px;
+			.icon {
+				color: $primaryColor;
+				line-height: 19px;
+		}
+	}
+}

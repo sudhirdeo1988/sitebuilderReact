@@ -1,0 +1,51 @@
+{
+    "componentHirerchy": [
+        "TestimonialType1",
+        "CoursesType1",
+        "HeaderType1"
+    ],
+    "HeaderType1": {
+        "logoUrl": "abc.jpg",
+        "title": "",
+        "subTitle": "",
+        "tagLine": "",
+        "loginButton": true,
+        "loginButtonURL": "www.abc.com/login",
+        "sidebarmobile": true,
+        "navRoutes": [
+            {
+                "routeName": "AboutUs",
+                "routeURL": "/aboutus"
+            },
+            {
+                "routeName": "ContactUs",
+                "routeURL": "/contactus"
+            }
+        ]
+    },
+    "CoursesType1":{
+        "courses":[
+            {
+                "courseId":1,
+                "CourseName": "C1"
+            }
+        ]
+    },
+    "SliderBannerType1": {
+        "bgimageUrl": "abc.jpg",
+        "title": "",
+        "subTitle": "",
+        "description": "",
+        "enrollBtn": "true",
+        "navRoutes": [
+            {
+                "routeName": "AboutUs",
+                "routeURL": "/aboutus"
+            },
+            {
+                "routeName": "ContactUs",
+                "routeURL": "/contactus"
+            }
+        ]
+    }
+}

@@ -1,0 +1,224 @@
+@import '../../assets/scss/utilities';
+@import '../../assets/scss/variables';
+
+/* ------ Header Type 1 ------------ */
+
+/* --------------------------------
+	5.2 Header Type 01
+----------------------------------- */
+
+.ts-header-01 {
+    background-color: $primaryColor;
+    padding: 26px 0;
+      @extend .block;
+      @include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.1));
+  
+      .ts-headNav{
+          height: 35px;
+          @extend .block;
+          @extend .relative;
+          @extend .text-right;
+  
+          ul{
+              list-style-type: none;
+              @extend .block;
+              @extend .nomargin;
+              @extend .nopad;
+  
+                  li{
+                      margin-right: 16px;
+                      @extend .inlineblock;
+                      @extend .relative;
+                      @extend .valign-middle;
+  
+                          &:last-child{
+                            @extend .margin0-right;
+                          }
+  
+                          a{
+                              color: $white;
+                              letter-spacing: 0.21px;
+                              line-height: 22px;
+                              text-decoration: none;
+                              padding: 6px 8px 7px;
+                              @extend .block;
+                              @extend .font-16;
+                              @extend .bold;
+                              @extend .no-outline;
+                          }
+                  }
+          }
+      }
+  
+      .ts-headLogo{
+        @extend .block;
+        @extend .relative;
+  
+          .ts-headerDiv__forMobile{
+              padding-left: 90px;
+              @extend .block;
+              @extend .relative;
+  
+              .ts-headLogo_img{
+                  height: 70px;
+                  width: 80px;
+                  background-color: $white;
+                  top: 2px;
+                  left: 0;
+                  @extend .absolute;
+  
+                      img{
+                          max-height: 70px;
+                      }
+              }
+              .ts-headLogo_title{
+                @extend .inlineblock;
+                @extend .valign-middle;
+  
+                      .Logo_title{
+                          color: $white;
+                          letter-spacing: 0.32px;
+                          line-height: 28px;
+                          @extend .block;
+                          @extend .font-22;
+                          @extend .bold;
+                          @extend .margin5-bottom;
+                              &.sub{
+                                  line-height: 22px;
+                                  @extend .font-16;
+                                  @extend .semiBold;
+                                  @extend .margin0-bottom;
+                              }
+                      }
+              }
+          }
+  
+      }
+      .ts-mobileMenu{
+          .closePopover {
+            @extend .hide;
+          }
+      }
+  
+      .ts-navMobile{
+        @extend .hide;
+          @include transition(all ease 0.3s);
+      }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .ts-header-01 {
+          padding: 10px 0;
+  
+          .ts-headLogo{
+              .ts-headerDiv__forMobile{
+                  padding-left: 50px;
+                  position: relative;
+                  float: left;
+                  padding-right: 10px;
+  
+                  .ts-headLogo_img{
+                      height: 35px;
+                      width: 42px;
+  
+                          img{
+                              max-height: 42px;
+                              width: 100%;
+                          }
+                  }
+                  .ts-headLogo_title{
+  
+                          .Logo_title{
+                              line-height: 19px;
+                              font-size: 14px;
+                                  &.sub{
+                                      font-size: 11px;
+                                      line-height: 15px;
+                                  }
+                          }
+                  }
+              }
+          }
+  
+          .btnPrimary__menu{
+              .icon{
+                  color: $white;
+              }
+          }
+          .ts-navMobile{
+            display: inline-block;
+          }
+          .ts-headNav{
+              height: auto;
+          }
+          .ts-mobileMenu{
+              background-color: $primaryColor;
+              position: fixed;
+              top: 0;
+              left: -350px;
+              height: 100%;
+              width: 300px;
+              padding: 20px 0;
+              z-index: 5;
+              @include transition(all ease 0.3s);
+              @include box-shadow(0 0 6px 3px rgba(0, 0, 0, 0.1));
+  
+              .ts-headNav{
+                  height: auto;
+                 text-align: left;
+  
+                      ul{
+                          li{
+                              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                              display: block;
+                              margin: 0;
+                                  a {
+                                      display: block;
+                                      font-weight: 600;
+                                      padding: 20px;
+                                      text-transform: uppercase;
+                                  }
+                          }
+                      }
+              }
+              .closePopover {
+                  top: 0;
+                  right: 0;
+                  width: 30px;
+                  height: 30px;
+                  text-align: right;
+                  display: block;
+                  position: absolute;
+  
+                      button {
+                          background-color: transparent;
+                          color: $white;
+                          font-size: 20px;
+                          height: 30px;
+                          width: 30px;
+                          line-height: 35px;
+                          content: "";
+                          font-family: themestudio;
+                          display: inline-block;
+                          text-align: center;
+                          padding: 0;
+                          border: 0;
+  
+                              &:before {
+                                  content: "\66";
+                              }
+                      }
+              }
+          }
+          .ts-headerDiv__forMobile {
+              width: calc(100% - 30px);
+              display: inline-block;
+          }
+          &.st-open{
+              .ts-mobileMenu{
+                  left: 0;
+              }
+          }
+    }
+  
+  }

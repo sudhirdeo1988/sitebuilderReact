@@ -1,0 +1,115 @@
+@import '../../assets/scss/utilities';
+@import '../../assets/scss/variables';
+
+/* --------------------------------
+	Heading type 01
+----------------------------------- */
+.ts-heading{
+    .headingBlock{
+      margin-bottom: 65px;
+      @extend .block;
+  
+        .mainHeading{
+            @extend .block;
+            @extend .text-center;
+  
+            .h_1{
+              color: $primaryColor;
+              font-size: 48px;
+              line-height: 60px;
+              @extend .inlineblock;
+            }
+            .h_2{
+              color: $secondaryColor;
+              font-size: 48px;
+              line-height: 60px;
+              @extend .inlineblock;
+              @extend .bold;
+            }
+  
+            &.c-1{
+              .h_3{
+                color: $primaryColor;
+                font-size: 48px;
+                line-height: 65px;
+                @extend .block;
+                @extend .bold;
+              }
+            }
+            &.c-2{
+              .h_3{
+                color: $secondaryColor;
+                font-size: 48px;
+                line-height: 65px;
+                @extend .block;
+                @extend .bold;
+              }
+            }
+        }
+  
+  
+        .subHeading{
+          color: $fontColor;
+          line-height: 22px;
+          @extend .font-16;
+          @extend .block;
+          @extend .text-center;
+          @extend .margin5-top;
+        }
+    }
+    &.type-01{
+      .headingBlock{
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        @extend .relative;
+          &::before{
+            background-color: lighten($black, 85%);
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            height: 3px;
+            width: 100px;
+            margin-left: -50px;
+          }
+          &.c-1{
+            &::before{
+              background-color: $primaryColor;
+            }
+          }
+          &.c-2{
+            &::before{
+              background-color:  $secondaryColor;
+            }
+          }
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .ts-heading{
+      .headingBlock{
+        margin-bottom: 25px;
+          .mainHeading{
+              .h_1,
+              .h_2,
+              &.c-1 .h_3,
+              &.c-2 .h_3{
+                font-size: 28px;
+                line-height: 35px;
+              }
+          }
+          .subHeading{
+            line-height: 20px;
+            font-size: 14px;
+          }
+      }
+      &.type-01{
+        .headingBlock{
+          padding-bottom: 25px;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+  

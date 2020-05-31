@@ -1,0 +1,59 @@
+@import '../../assets/scss/utilities';
+@import '../../assets/scss/variables';
+
+.ts-courses {
+    padding: 50px 0;
+    &.type-01 {
+      @extend .relative;
+  
+      .ts-courseBlock {
+        background-color: $white;
+        min-height: 265px;
+        @extend .block;
+        @extend .relative;
+        @extend .pad20;
+        @extend .margin20-bottom;
+        @extend .text-center;
+        @include box-shadow(0 0 5px #ccc);
+  
+        .blockHeading {
+          color: $primaryColor;
+          line-height: 24px;
+          @extend .block;
+          @extend .font-18;
+          @extend .margin20-bottom;
+          @extend .bold;
+        }
+        .blockInfo {
+          color: #737373;
+          line-height: 19px;
+          @extend .block;
+          @extend .font-14;
+        }
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+      .ts-courses {
+          &.type-01 {
+  
+              .ts-courseBlock {
+                  background-color: $white;
+                  min-height: 100px;
+                  padding: 15px;
+                  margin-bottom: 15px;
+  
+                  .blockHeading {
+                      line-height: 20px;
+                      font-size: 14px;
+                      margin-bottom: 10px;
+                  }
+                  .blockInfo {
+                      line-height: 18px;
+                      font-size: 12px;
+                  }
+              }
+          }
+      }
+  }

@@ -1,0 +1,244 @@
+/* ------------------------------
+1. Theme Colour Setting
+---------------------------------*/
+$primaryColor: #981C1E; $secondaryColor: #FFCC01; $thirdColor: #999999;
+$fontColor: #383838; $colorEEEEEE: #eeeeee;
+
+$col-error: #d44950;
+
+.col-dark{background-color: #fafafa;}
+.col-light{background-color: #ffffff;}
+
+/* ------------------------------
+2. Font Setting
+---------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Open+Sans:400,700&display=swap");
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700&display=swap');
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+
+@font-face {
+  font-family: themestudio;
+  src: url('../fonts/themestudio.eot');
+  src: url('../fonts/themestudio.eot?#iefix') format("embedded-opentype"),
+    url('../fonts/themestudio.woff') format("woff"),
+    url('../fonts/themestudio.ttf') format("truetype"),
+    url('../fonts/themestudio.svg#themestudio') format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: themestudio !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class*=" ts-"]:before,
+[class^="ts-"]:before {
+  font-family: themestudio !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ts-angle-down:before {
+  content: "\61";
+}
+.ts-angle-left:before {
+  content: "\62";
+}
+.ts-angle-right:before {
+  content: "\63";
+}
+.ts-angle-up:before {
+  content: "\64";
+}
+.ts-bars:before {
+  content: "\65";
+}
+.ts-close:before {
+  content: "\66";
+}
+.ts-done:before {
+  content: "\67";
+}
+.ts-add:before {
+  content: "\68";
+}
+.ts-more-vertical:before {
+  content: "\69";
+}
+.ts-more-horizontal:before {
+  content: "\6a";
+}
+.ts-remove:before {
+  content: "\6b";
+}
+.ts-radio-button-off:before {
+  content: "\6c";
+}
+.ts-radio-button-on:before {
+  content: "\6d";
+}
+.ts-checkbox-outline:before {
+  content: "\6e";
+}
+.ts-checkbox-outline-blank:before {
+  content: "\6f";
+}
+.ts-checkbox-blank:before {
+  content: "\70";
+}
+.ts-checkbox:before {
+  content: "\71";
+}
+.ts-person-stalker:before {
+  content: "\72";
+}
+.ts-person:before {
+  content: "\73";
+}
+.ts-phone:before {
+  content: "\74";
+}
+.ts-facebook:before {
+  content: "\75";
+}
+.ts-instagram:before {
+  content: "\76";
+}
+.ts-linkedin:before {
+  content: "\77";
+}
+.ts-email:before {
+  content: "\78";
+}
+.ts-arrow-back:before {
+  content: "\41";
+}
+.ts-arrow-forward:before {
+  content: "\42";
+}
+
+/* -------------------------------------------------
+			3.Utilities and setting variables
+	---------------------------------------------------- */
+	.fontPrimary_body{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+	}
+	.fontPrimary_heading{
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+	}
+
+	.cursorPointer{cursor: pointer;}.bgTransparent{background-color: transparent;}.no-outline{outline: none;}
+	.clear { clear:both; }.left { float:left; }.right {float:right; }.center {margin: 0 auto; }.nofloat { float:none; }
+	.absolute{position:absolute;}.relative{position:relative;}.noborder{border: 0 none;}
+	.hide { display:none; }.novis { visibility: hidden; }.block { display:block; }.inlineblock { display:inline-block; }
+	.inline { display:inline; }.display-table { display:table; }
+	.text-center{text-align: center;}.text-left{text-align: left;}.text-right{text-align: right;}
+	.semiBold{font-weight: 500;}.bold{font-weight: 600;}.text-uppercase{text-transform: uppercase;}
+
+	.font-8 { font-size:8px; }   .font-10 { font-size:10px; } .font-12 { font-size:12px; }
+	.font-14 { font-size:14px; } .font-16 { font-size:16px; }	.font-18 { font-size:18px; }
+	.font-20 { font-size:20px; } .font-22 { font-size:22px; } .font-24 { font-size:24px; }
+
+	.valign-top{vertical-align: top;}.valign-middle{vertical-align: middle;}
+	.height100{height:100%;} .width100{width:100%;}
+
+	.nopad { padding: 0; }
+	.pad5 { padding:5px; } .pad10 { padding:10px; }
+	.pad15 { padding:15px; } .pad20 { padding:20px; }
+
+	.pad0-top { padding-top: 0; } .pad5-top { padding-top:5px; } .pad10-top { padding-top:10px; }
+	.pad15-top { padding-top:15px; } .pad20-top { padding-top:20px; }
+
+	.pad0-right { padding-right: 0; } .pad5-right { padding-right:5px; } .pad10-right { padding-right:10px; }
+	.pad15-right { padding-right:15px; } .pad20-right { padding-right:20px; }
+
+	.pad0-bottom { padding-bottom: 0; } .pad5-bottom { padding-bottom:5px; } .pad10-bottom { padding-bottom:10px; }
+	.pad15-bottom { padding-bottom:15px; } .pad20-bottom { padding-bottom:20px; }
+
+	.pad0-left { padding-left: 0; } .pad5-left { padding-left:5px; } .pad10-left { padding-left:10px; }
+	.pad15-left { padding-left:15px; } .pad20-left { padding-left:20px; }
+
+	.nomargin { margin:0; }
+	.margin5 { margin:5px; } .margin10 { margin:10px; } .margin15 { margin:15px; }
+	.margin20 { margin:20px; }
+
+	.margin0-top { margin-top: 0; } .margin5-top { margin-top:5px; } .margin10-top { margin-top:10px; }
+	.margin15-top { margin-top:15px; } .margin20-top { margin-top:20px; }
+
+	.margin0-right { margin-right: 0; } .margin5-right { margin-right:5px; } .margin10-right { margin-right:10px; }
+	.margin15-right { margin-right:15px; } .margin20-right { margin-right:20px; }
+
+	.margin0-bottom { margin-bottom: 0; } .margin5-bottom { margin-bottom:5px; } .margin10-bottom { margin-bottom:10px; }
+	.margin15-bottom { margin-bottom:15px; } .margin20-bottom { margin-bottom:20px; }
+
+	.margin0-left { margin-left: 0; } .margin5-left { margin-left:5px; } .margin10-left { margin-left:10px; }
+	.margin15-left { margin-left:15px; } .margin20-left { margin-left:20px; }
+
+	.for-mobile{@extend .hide;}
+	@media only screen and (max-width: 768px) {
+		.for-mobile{display: block;}
+		.for-desktop{display: none;}
+	}
+
+	@mixin rounded-corners ($arguments) {
+		-webkit-border-radius: $arguments;
+		-moz-border-radius: $arguments;
+		border-radius: $arguments;
+	}
+
+	@mixin box-shadow($arguments){
+		box-shadow:$arguments;
+		-moz-box-shadow:$arguments;
+		-webkit-box-shadow:$arguments;
+		-ms-box-shadow:$arguments;
+		-o-box-shadow:$arguments;
+	}
+
+	@mixin transition($arguments){
+		transition:$arguments;
+		-moz-transition:$arguments;
+		-webkit-transition:$arguments;
+		-o-transition:$arguments;
+		-ms-transition:$arguments;
+	}
+
+	.clearfix {
+		@extend .block;
+
+		&:after{
+			clear: both;
+			content: ".";
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+			@extend .block;
+		}
+	}
+
+	$white: #FFFFFF; $black: #000000;
+	$link-blue:#2a6496;
+	.textWhite{color: $white;} .bgWhite{background-color: $white;}
+
