@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PageBody from '../PageBody/PageBody';
 import './HeaderType1.scss';
 
 const HeaderType1 = (props) =>{
-    console.log(props.HeaderType1);
+    const headerData = props.data.HeaderType1;
 return(
     <div className="ts-header ts-header-01">
     <div className="container">
@@ -32,18 +34,34 @@ return(
           <div className="closePopover">
             <button></button>
           </div>
-          <div className="ts-headNav">
-            <ul>
-              <li><Link to="#">Home</Link></li>
-              <li><Link to="#">About Us</Link></li>
-              <li><Link to="#">Courses</Link></li>
-              <li><Link to="#">Centers</Link></li>
-              <li><Link to="#">Contact Us</Link></li>
-              <li>
-                <button className="btn btnPrimary__sm">Login</button>
-              </li>
-            </ul>
-          </div>
+          {headerData.navRoutes.length && (
+              <div className="ts-headNav">
+              <ul>
+              <Router>
+                {
+                  headerData.navRoutes.map(route => {
+                  return (
+                    <li>
+                      <Link to={`/${route.routeURL}`}>{route.routeName}</Link>
+                    </li>
+                    );
+                  })
+                }
+                {headerData && headerData.loginButton && (
+                  <li>
+                    <button className="btn btnPrimary__sm" to='#'>Login</button>
+                  </li>
+                )}
+                
+                  {
+                  headerData.navRoutes.map(route => {
+                    return <Route path={`/${route.routeURL}`} render={() => <PageBody />} />;
+                  })}
+              </Router>
+              </ul>
+            </div>
+          )}
+
         </div>
 
       </div>

@@ -1,8 +1,8 @@
 {
+    "componentFix": ["HeaderType1"],
     "componentHirerchy": [
-        "TestimonialType1",
         "CoursesType1",
-        "HeaderType1"
+        "TestimonialType1"
     ],
     "HeaderType1": {
         "logoUrl": "abc.jpg",
@@ -15,11 +15,11 @@
         "navRoutes": [
             {
                 "routeName": "AboutUs",
-                "routeURL": "/aboutus"
+                "routeURL": "aboutus"
             },
             {
                 "routeName": "ContactUs",
-                "routeURL": "/contactus"
+                "routeURL": "contactus"
             }
         ]
     },
