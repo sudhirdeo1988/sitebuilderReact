@@ -4,11 +4,11 @@ import PageBody from '../componentLibrary/PageBody/PageBody';
 import PageHeader from '../componentLibrary/PageHeader/PageHeader';
 
 const SamplePage = (props) =>{
-
+    const data = props.match.path === '/' ? 'home' : props.match.path;
     return(
         <React.Fragment>
-            <PageHeader data={pageJSON} />
-            <PageBody {...pageJSON} />
+            <PageHeader pageHeader={pageJSON.header} pageData={pageJSON[data]} />
+            <PageBody pageData={pageJSON[data]} />
         </React.Fragment>
     );
 }

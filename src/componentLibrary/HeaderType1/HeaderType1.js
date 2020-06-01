@@ -5,7 +5,7 @@ import PageBody from '../PageBody/PageBody';
 import './HeaderType1.scss';
 
 const HeaderType1 = (props) =>{
-    const headerData = props.data.HeaderType1;
+    const headerData = props.headerData.HeaderType1;
 return(
     <div className="ts-header ts-header-01">
     <div className="container">
@@ -55,7 +55,7 @@ return(
                 
                   {
                   headerData.navRoutes.map(route => {
-                    return <Route path={`/${route.routeURL}`} render={() => <PageBody />} />;
+                    return <Route path={`/${route.routeURL}`} render={() => <PageBody pageData={props.pageData} />} />;
                   })}
               </Router>
               </ul>

@@ -43,24 +43,7 @@
             ]
         }
     },
-    "home": {
-        "pagename": "Home",
-        "componentHirerchy": [
-            "CoursesType1",
-            "TestimonialType1"
-        ],
-        "CoursesType1": {
-            "logoUrl": "abc.jpg",
-            "title": "",
-            "subTitle": "",
-            "tagLine": "",
-            "loginButton": true,
-            "loginButtonURL": "www.abc.com/login",
-            "sidebarmobile": true
-        }
-    },
     "aboutus": {
-        "pagename": "About Us",
         "componentHirerchy": [
             "CoursesType1",
             "TestimonialType1"
@@ -76,7 +59,6 @@
         }
     },
     "contactus": {
-        "pagename": "Contact Us",
         "componentHirerchy": [
             "TestimonialType1",
             "CoursesType1"
