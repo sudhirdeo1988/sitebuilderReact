@@ -1,4 +1,12 @@
 {
+    "siteConfigured": false,
+    "userData":{
+        "userID": 1,
+        "name": "VIIT",
+        "userName": "sudhir",
+        "passwordHash": "#ed7653$",
+        "email": "sudhir@gmail.com"
+    },
     "header":{
         "type":["HeaderType1"],
         "HeaderType1": {
