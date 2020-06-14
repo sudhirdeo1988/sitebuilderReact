@@ -44,7 +44,7 @@ const Login = () => {
                         <Tab label="Sign Up" />
                     </Tabs>
                 </AppBar>
-                <TabPanel value={value} index={0}>
+                <TabPanel value={value} index={0} className="tabPanel">
                     <SignIn />
                 </TabPanel>
                 <TabPanel value={value} index={1}>

@@ -1,8 +1,10 @@
 
-
-export const fetchData = async () =>{
-    const data = await fetch(`http://192.168.1.208:8080/auth/user`, {
-        "method":"GET"
-    }).then(respo => respo.json());
+export const checkLogin = async (loginInfo) =>{
+    console.log(loginInfo);
+    const data = await fetch('http://localhost:3001/user/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(loginInfo)
+    }).then(response => response.json());
     return data;
 }

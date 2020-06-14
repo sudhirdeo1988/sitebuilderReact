@@ -5,6 +5,8 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOpenRoundedIcon from '@material-ui/icons/LockOpenRounded';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import {checkLogin} from '../../utilities/api';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
     pink: {
@@ -12,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: pink[500],
     },
     btnContainer:{
-        textAlign: "center"
+        textAlign: "center",
+        margin: "10px 0"
     },
     linkContainer:{
         display:"block",
@@ -22,20 +25,31 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const SignIn = () => {
+const SignIn = (props) => {
     const [formData, setFormData] = useState({
         userName: '',
         password: ''
     });
+    const [isLoginError, serIsLoginError] = useState(false);
     const classes = useStyles();
 
     const handleChange = event => {
         formData[event.target.name] = event.target.value;
         setFormData({ ...formData});
     }
-    const validateForm = event =>{
+    const validateForm = async event =>{
         event.preventDefault();
-        console.log(formData);
+        const userStatus = await checkLogin(formData);
+        setFormData({
+            userName: '',
+            password: ''
+        });
+        if(userStatus.statusCode === 404){
+            serIsLoginError(true);
+        } else {
+            serIsLoginError(false);
+        }
+        console.log(userStatus);
     }
 
     return(
@@ -75,6 +89,9 @@ const SignIn = () => {
                     <div className={classes.linkContainer}>
                         <Button color="primary">Forgot Password</Button>
                     </div>
+                    {isLoginError && (
+                        <Alert severity="error">Invalid Username Password</Alert>
+                    )}
                     <div className={classes.btnContainer}>
                         <Button type="submit" variant="contained" color="primary">
                             Login
@@ -86,5 +103,6 @@ const SignIn = () => {
         </div>
     );
 }
+
 
 export default SignIn;

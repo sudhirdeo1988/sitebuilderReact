@@ -35,7 +35,6 @@ const SignUp = (props) => {
         delete formData.confirmPassword;
         await props.addNewUser(formData);
         setFormData({...userInitialState});
-        console.log('data inserted');
     }
 
     useEffect(() => {
