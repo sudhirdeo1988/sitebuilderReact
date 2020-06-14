@@ -1,14 +1,16 @@
 {
     "siteConfigured": false,
-    "userData":{
+    "userData": {
         "userID": "1",
         "name": "VIIT",
         "userName": "sudhir",
         "passwordHash": "#ed7653$",
         "email": "sudhir@gmail.com"
     },
-    "header":{
-        "type":["HeaderType1"],
+    "header": {
+        "type": [
+            "HeaderType1"
+        ],
         "HeaderType1": {
             "logoUrl": "abc.jpg",
             "title": "",
@@ -29,8 +31,10 @@
             ]
         }
     },
-    "footer":{
-        "type":["FooterType1"],
+    "footer": {
+        "type": [
+            "FooterType1"
+        ],
         "HeaderType1": {
             "logoUrl": "abc.jpg",
             "title": "",

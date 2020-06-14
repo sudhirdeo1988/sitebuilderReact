@@ -1,5 +1,16 @@
-const emptyInitialState = {
-  translations: {}
+export const emptyInitialState = {
+  user: {},
+  page_json: {}
 };
 
-export default emptyInitialState;
+export const userInitialState = {
+  userID: '',
+  name: '',
+  emailid:'',
+  userName: '',
+  password: '',
+  confirmPassword: ''
+};
+
+
+

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { compose, bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import {Avatar, Button} from '@material-ui/core';
 import uuid from 'react-uuid';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import { addNewUser } from "../../action/user.action";
+import { userInitialState } from '../../store/initialState';
 
 const useStyles = makeStyles((theme) => ({
     pink: {
@@ -18,14 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const SignUp = () => {
-    const [formData, setFormData] = useState({
-        userID: '',
-        name: '',
-        userName: '',
-        password: '',
-        confirmPassword: ''
-    });
+const SignUp = (props) => {
+    const [formData, setFormData] = useState({...userInitialState});
     const classes = useStyles();
 
     const handleChange = event => {
@@ -33,14 +30,23 @@ const SignUp = () => {
         formData.userID =  uuid();
         setFormData({ ...formData});
     }
-    const validateForm = event =>{
+    const validateForm = async event =>{
         event.preventDefault();
-        console.log(formData);
+        delete formData.confirmPassword;
+        await props.addNewUser(formData);
+        setFormData({...userInitialState});
+        console.log('data inserted');
     }
 
     useEffect(() => {
         ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
             if (value !== formData.password) {
+                return false;
+            }
+            return true;
+        });
+        ValidatorForm.addValidationRule('isHavingSpace', (value) => {
+            if (/\s/.test(value)) {
                 return false;
             }
             return true;
@@ -71,6 +77,17 @@ const SignUp = () => {
                         validators={['required']}
                         errorMessages={['Enter Institute Name']}
                         />
+                        <TextValidator 
+                        onChange={handleChange} 
+                        name='emailid' 
+                        value={formData.emailid}
+                        type="email" 
+                        label="Email ID" 
+                        variant="outlined" 
+                        className="formField"
+                        validators={['required', 'isEmail']}
+                        errorMessages={['Enter Email ID', 'Invalid Email ID']}
+                        />
                     <TextValidator 
                         onChange={handleChange} 
                         name='userName' 
@@ -79,8 +96,8 @@ const SignUp = () => {
                         label="User Name" 
                         variant="outlined" 
                         className="formField" 
-                        validators={['required']}
-                        errorMessages={['Enter User Name']}
+                        validators={['required', 'isHavingSpace']}
+                        errorMessages={['Enter User Name', 'No space allowd in username']}
                     />
                     <TextValidator 
                         onChange={handleChange} 
@@ -98,7 +115,7 @@ const SignUp = () => {
                         name='confirmPassword' 
                         type="password" 
                         value={formData.confirmPassword}
-                        label="Password" 
+                        label="Confirm Password" 
                         variant="outlined" 
                         className="formField" 
                         validators={['required', 'isPasswordMatch']}
@@ -116,4 +133,13 @@ const SignUp = () => {
     );
 }
 
-export default SignUp;
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      addNewUser
+    },
+    dispatch
+  );
+
+export default compose(connect(null, mapDispatchToProps))(SignUp);

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SignIn from '../SignIn/SignIn';
-import {fetchData} from '../../utilities/api';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -22,7 +21,7 @@ function TabPanel(props) {
       >
         {value === index && (
           <Box p={3}>
-            <Typography>{children}</Typography>
+            <Typography component={'span'}>{children}</Typography>
           </Box>
         )}
       </div>
@@ -36,14 +35,6 @@ const Login = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    useEffect(() => {
-        getData();
-    })
-
-    const getData = async () =>{
-        const data = await fetchData();
-        console.log(data);
-    }
     return(
         <div className="c-pageWrapper">
             <div className="c-rightSect">
